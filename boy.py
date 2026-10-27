@@ -16,6 +16,7 @@ class AutoRun:
 
     def __init__(self, boy):
         self.boy = boy
+        self.started_at = time.monotonic()
 
     @property
     def is_invincible(self):
@@ -23,6 +24,10 @@ class AutoRun:
 
     def update(self):
         boy = self.boy
+        if time.monotonic() - self.started_at >= 5.0:
+            boy.finish_auto_run()
+            return
+
         boy.min_x = self.DRAW_SIZE // 2
         boy.max_x = 800 - self.DRAW_SIZE // 2
         boy.x += boy.face_dir * self.SPEED
@@ -56,6 +61,12 @@ class Boy:
                     'source': IDLE,
                     'dest': AUTO_RUN,
                     'after': 'enter_auto_run',
+                },
+                {
+                    'trigger': 'finish_auto_run',
+                    'source': AUTO_RUN,
+                    'dest': IDLE,
+                    'after': 'exit_auto_run',
                 },
                 {
                     'trigger': 'stop_run',
@@ -122,6 +133,10 @@ class Boy:
 
     def enter_auto_run(self):
         self.auto_run_state = AutoRun(self)
+
+    def exit_auto_run(self):
+        self.auto_run_state = None
+        self.restart_idle_timer()
 
     def draw(self):
         if self.state == SLEEP:

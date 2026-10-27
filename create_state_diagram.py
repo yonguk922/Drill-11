@@ -56,13 +56,17 @@ diagram = """<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600"
         stroke="#d97706" stroke-width="4" marker-end="url(#arrow)"/>
   <text x="285" y="440" text-anchor="middle" font-family="Arial"
         font-size="18" fill="#b45309">A (IDLE only)</text>
+  <path d="M470 392 L470 272" fill="none"
+        stroke="#d97706" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="555" y="345" text-anchor="middle" font-family="Arial"
+        font-size="18" fill="#b45309">5 seconds</text>
   <text x="500" y="555" text-anchor="middle" font-family="Arial"
         font-size="18" fill="#374151">
     AUTO_RUN is invincible, faster, enlarged, and reverses at screen edges
   </text>
   <text x="500" y="580" text-anchor="middle" font-family="Arial"
         font-size="16" fill="#4b5563">
-    IDLE → SLEEP after 5 seconds | SLEEP → IDLE on SPACE
+    AUTO_RUN → IDLE after 5 seconds | IDLE → SLEEP after 5 seconds
   </text>
 </svg>
 """
