@@ -11,6 +11,9 @@ AUTO_RUN = 'AUTO_RUN'
 
 
 class AutoRun:
+    SPEED = 6
+    DRAW_SIZE = 150
+
     def __init__(self, boy):
         self.boy = boy
 
@@ -20,7 +23,9 @@ class AutoRun:
 
     def update(self):
         boy = self.boy
-        boy.x += boy.face_dir * boy.speed
+        boy.min_x = self.DRAW_SIZE // 2
+        boy.max_x = 800 - self.DRAW_SIZE // 2
+        boy.x += boy.face_dir * self.SPEED
         if boy.x <= boy.min_x or boy.x >= boy.max_x:
             boy.x = max(boy.min_x, min(boy.max_x, boy.x))
             boy.face_dir *= -1
@@ -132,6 +137,12 @@ class Boy:
                 else 300 if self.face_dir == 1
                 else 200
             )
+            draw_size = (
+                AutoRun.DRAW_SIZE
+                if self.state == AUTO_RUN
+                else 100
+            )
             self.image.clip_draw(
-                self.frame * 100, row_y, 100, 100, self.x, self.y
+                self.frame * 100, row_y, 100, 100,
+                self.x, self.y, draw_size, draw_size
             )

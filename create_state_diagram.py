@@ -58,7 +58,7 @@ diagram = """<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="600"
         font-size="18" fill="#b45309">A (IDLE only)</text>
   <text x="500" y="555" text-anchor="middle" font-family="Arial"
         font-size="18" fill="#374151">
-    AUTO_RUN is invincible and reverses direction at both boundaries
+    AUTO_RUN is invincible, faster, enlarged, and reverses at screen edges
   </text>
   <text x="500" y="580" text-anchor="middle" font-family="Arial"
         font-size="16" fill="#4b5563">
