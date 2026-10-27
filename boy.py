@@ -57,6 +57,12 @@ class Boy:
                 {'trigger': 'run', 'source': IDLE, 'dest': RUN},
                 {'trigger': 'run', 'source': SLEEP, 'dest': RUN},
                 {
+                    'trigger': 'run',
+                    'source': AUTO_RUN,
+                    'dest': RUN,
+                    'after': 'exit_auto_run',
+                },
+                {
                     'trigger': 'auto_run',
                     'source': IDLE,
                     'dest': AUTO_RUN,
@@ -108,11 +114,9 @@ class Boy:
             elif event.key == SDLK_a and self.state == IDLE:
                 self.auto_run()
             elif event.key in (SDLK_LEFT, SDLK_RIGHT):
-                if self.state == AUTO_RUN:
-                    return
                 self.pressed_directions.add(event.key)
                 self.face_dir = -1 if event.key == SDLK_LEFT else 1
-                if self.state in (IDLE, SLEEP):
+                if self.state in (IDLE, SLEEP, AUTO_RUN):
                     self.run()
         elif event.type == SDL_KEYUP:
             if event.key in (SDLK_LEFT, SDLK_RIGHT):

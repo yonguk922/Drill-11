@@ -57,12 +57,16 @@
         stroke="#d97706" stroke-width="4" marker-end="url(#arrow)"/>
   <text x="555" y="345" text-anchor="middle" font-family="Arial"
         font-size="18" fill="#b45309">5 seconds</text>
+  <path d="M408 430 C350 390, 350 280, 400 245" fill="none"
+        stroke="#d97706" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="320" y="335" text-anchor="middle" font-family="Arial"
+        font-size="18" fill="#b45309">LEFT / RIGHT</text>
   <text x="500" y="555" text-anchor="middle" font-family="Arial"
         font-size="18" fill="#374151">
-    AUTO_RUN is invincible, faster, enlarged, and reverses at screen edges
+    Direction key cancels AUTO_RUN and starts normal RUN
   </text>
   <text x="500" y="580" text-anchor="middle" font-family="Arial"
         font-size="16" fill="#4b5563">
-    AUTO_RUN → IDLE after 5 seconds | IDLE → SLEEP after 5 seconds
+    AUTO_RUN → IDLE after 5 seconds | AUTO_RUN → RUN on direction key
   </text>
 </svg>
